@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Viewers from "./Viewers";
+import Movies from "./Movies";
 
 function Home() {
     return(
         <Container>
             <ImgSlider />
             <Viewers />
+            <Movies />
         </Container>
     ) 
 }
@@ -18,7 +20,8 @@ const Container = styled.main`
     min-height: calc(100vh - 70px);
     padding: 0 calc(3.5vw + 5px);
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
+
 
     ${'' /* before will add the div before the container */}
     ${'' /* / has been added becoz to set the background-position: cover */}
