@@ -70,7 +70,7 @@ const ImageTitle = styled.div`
     min-height: 140px;
     width: 20vw;
     min-width: 170px;
-    margin-top: 20px;
+    margin-top: 50px;
     
     img{
         height: 100%;
@@ -82,6 +82,7 @@ const ImageTitle = styled.div`
 const Controls = styled.div`
     display: flex;
     align-items: center;
+    margin-top: 20px;
     
 `;
 
@@ -152,4 +153,5 @@ const Description = styled.div`
     font-size: 16px;
     margin-top: 10px;
     color: rgb(249, 249, 249);
+    max-width: 610px;
 `;
