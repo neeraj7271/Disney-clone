@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Viewers from "./Viewers";
 import Movies from "./Movies";
+import db from "../firebase"
+import {useDispatch} from  "react-redux";
+import { setMovies } from "../features/movie/movieSlice";
 
 function Home() {
+    const dispatch = useDispatch();
+    // what does the useEffect do? whenever it load the the component/load the page basilly it will do whatever we are telling it to do
+    useEffect(()=>{
+        // onSnapshot it give us back the  picture of the database at a particular time we've called it.  whenever the database changes it will send the new picture of the database ie why the firebase is called live database
+       
+        db.collection("movies").onSnapshot((snapshot) =>{
+            // console.log(snapshot);
+            var tempMovies = snapshot.docs.map((doc) =>{
+                console.log(doc.data());
+                return { id: doc.id, ...doc.data()}
+            })
+
+            // console.log(tempMovies);
+            //here the movie and home.jsx shares the same store containing the movies
+            dispatch(setMovies(tempMovies));
+        })
+    },[])
+
+
     return(
         <Container>
             <ImgSlider />
