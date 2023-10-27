@@ -16,7 +16,7 @@ function Home() {
         db.collection("movies").onSnapshot((snapshot) =>{
             // console.log(snapshot);
             var tempMovies = snapshot.docs.map((doc) =>{
-                console.log(doc.data());
+                // console.log(doc.data());
                 return { id: doc.id, ...doc.data()}
             })
 
