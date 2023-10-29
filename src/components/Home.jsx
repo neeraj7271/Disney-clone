@@ -23,6 +23,7 @@ function Home() {
             // console.log(tempMovies);
             //here the movie and home.jsx shares the same store containing the movies
             dispatch(setMovies(tempMovies));
+            
         })
     },[])
 
